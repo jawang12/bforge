@@ -1,10 +1,16 @@
 ---
 import DefaultLayout from '../layouts/Default.astro';
+import { FeaturesCards } from '../sections/FeaturesCards';
 import { HeaderSection } from '../sections/Header';
 import { HeroSection } from '../sections/Hero';
+import { FeaturesGrid } from '../sections/FeaturesGrid';
+import { LatestPosts } from '../sections/LatestPosts';
 ---
 
 <DefaultLayout>
-  <HeaderSection />
-  <HeroSection />
+  <HeaderSection client:load />
+  <HeroSection client:load />
+  <FeaturesCards client:load />
+  <FeaturesGrid />
+  <LatestPosts />
 </DefaultLayout>

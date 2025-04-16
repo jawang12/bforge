@@ -1,3 +1,4 @@
+import { Circle } from "../components/Circle";
 import { CutCornerButton } from "../components/CutCornerButton";
 import { Hexagon } from "../components/Hexagon";
 
@@ -26,6 +27,33 @@ export const HeroSection = () => {
             <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
               <Hexagon className="size-[1800px]" />
             </div>
+            <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
+              <Circle className="absolute -top-[900px] left-[200px]">
+                <img
+                  src="/assets/images/cube.png"
+                  alt="Cube 3d image"
+                  className="size-[140px]"
+                />
+              </Circle>
+            </div>
+            <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
+              <Circle className="absolute left-[200px] top-[270px]">
+                <img
+                  src="/assets/images/cuboid.png"
+                  alt="Cuboid 3d image"
+                  className="size-[140px]"
+                />
+              </Circle>
+            </div>
+            <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
+              <Circle className="absolute -left-[600px] -top-[80px]">
+                <img
+                  src="/assets/images/torus.png"
+                  alt="Torus 3d image"
+                  className="size-[140px]"
+                />
+              </Circle>
+            </div>
             <img
               src="/assets/images/icosahedron.png"
               alt=""
@@ -37,6 +65,14 @@ export const HeroSection = () => {
               className="w-[500px]"
             />
           </div>
+        </div>
+        <div className="mt-40 flex flex-col items-center justify-center gap-4 md:mt-80">
+          <div className="inline-flex h-10 w-5 justify-center rounded-full pt-2 outline outline-[6px] outline-fuchsia-500/10">
+            <div className="h-3 w-1 rounded-full bg-fuchsia-500"></div>
+          </div>
+          <p className="font-extrabold uppercase tracking-wider text-zinc-500">
+            Scroll to Learn More
+          </p>
         </div>
       </div>
     </section>
