@@ -1,32 +1,47 @@
+import type { CollectionEntry } from "astro:content";
 import { Card } from "../components/Card";
+import { getPostColorFromCategory } from "../utils/postUtils";
+import { Tag } from "../components/Tag";
+import { CutCornerButton } from "../components/CutCornerButton";
 
-export const LatestPosts = () => {
+export const LatestPosts = (props: {
+  latestPosts: CollectionEntry<"blog">[];
+}) => {
+  const { latestPosts } = props;
   return (
     <section className="py-60">
       <div className="container">
-        <h2 className="text-center font-heading text-4xl font-black">
-          Your portal to everything blockchain.
-        </h2>
-        <p className="mt-8 text-center text-xl text-zinc-400">
-          Keep up with the newest trends, updates, and insights in the
-          blockchain world, updated weekly.
-        </p>
-      </div>
-      <div className="mt-16 flex flex-col gap-8">
-        {Array.from({ length: 4 }).map((_, index) => (
-          <Card key={index} buttonText="Read More">
-            <div className="inline-flex rounded-full bg-fuchsia-500/15 px-3 py-1.5 font-heading text-xs font-extrabold uppercase tracking-wider text-fuchsia-500">
-              Technology
-            </div>
-            <h3 className="mt-4 font-heading text-3xl font-black">
-              Regulatory Challenges Facing Blockchain
-            </h3>
-            <p className="mt-6 text-lg text-zinc-400">
-              Understanding the regulatory landscape surrounding blockchain and
-              what it means for the future of this technology.
-            </p>
-          </Card>
-        ))}
+        <div className="mx-auto max-w-3xl">
+          <h2 className="text-center font-heading text-4xl font-black md:text-5xl lg:text-6xl">
+            Your portal to everything blockchain.
+          </h2>
+          <p className="mt-8 text-center text-xl text-zinc-400 lg:text-2xl">
+            Keep up with the newest trends, updates, and insights in the
+            blockchain world, updated weekly.
+          </p>
+        </div>
+        <div className="mt-16 space-y-8">
+          {latestPosts.map(
+            ({ data: { title, description, category } }, index) => (
+              <Card
+                key={index}
+                buttonText="Read More"
+                color={getPostColorFromCategory(category)}
+                wrapperClassName={`md:even:float-right md:odd:float-left md:w-[48%] ${index === 1 && "md:pt-7"}`}
+              >
+                <Tag color={getPostColorFromCategory(category)}>{category}</Tag>
+                <h3 className="mt-3 font-heading text-3xl font-black">
+                  {title}
+                </h3>
+                <p className="mt-6 text-lg text-zinc-400">{description}</p>
+              </Card>
+            ),
+          )}
+        </div>
+        <div className="clear-both"></div>
+        <div className="mt-32 flex justify-center">
+          <CutCornerButton>Read the Blog</CutCornerButton>
+        </div>
       </div>
     </section>
   );

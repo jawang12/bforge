@@ -7,23 +7,29 @@ export const Card = (
     color?: string;
     activeCardIndex?: number;
     buttonText?: string;
+    wrapperClassName?: string;
   },
 ) => {
   // children is already included in ComponentPropsWithoutRef<"div">, so we don't need to add it again
-  const { color, activeCardIndex, children, className, buttonText } = props;
+  const {
+    color,
+    activeCardIndex,
+    children,
+    className,
+    wrapperClassName,
+    buttonText,
+  } = props;
   return (
     <div
-      className="inline-flex transition-all duration-500"
+      className={twMerge(
+        "inline-flex transition-all duration-500",
+        wrapperClassName,
+      )}
       style={{
         transform: `translateX(calc((-100% - 2rem) * ${activeCardIndex} )`,
       }}
     >
-      <div
-        className={twMerge(
-          "group relative z-0 max-w-xs p-8 md:p-10",
-          className,
-        )}
-      >
+      <div className={twMerge("group relative z-0 p-8 md:p-10", className)}>
         <div
           className={twMerge(
             "absolute right-1.5 top-1.5 -z-10 size-16 rounded-xl bg-fuchsia-500 opacity-0 blur-lg transition duration-300 group-hover:opacity-100",

@@ -5,6 +5,17 @@ import { HeaderSection } from '../sections/Header';
 import { HeroSection } from '../sections/Hero';
 import { FeaturesGrid } from '../sections/FeaturesGrid';
 import { LatestPosts } from '../sections/LatestPosts';
+import { getCollection } from 'astro:content';
+
+const posts = await getCollection('blog');
+const latestPosts = posts
+  .sort((a, b) => {
+    if (a.data.pubDate.valueOf() === b.data.pubDate.valueOf()) return 0;
+    // if a is greater, we want it to come first, other wise we want b to return earlier
+    // so we return -1 if a is greater, and 1 if b is greater
+    return a.data.pubDate.valueOf() > b.data.pubDate.valueOf() ? -1 : 1;
+  })
+  .slice(0, 4);
 ---
 
 <DefaultLayout>
@@ -12,5 +23,5 @@ import { LatestPosts } from '../sections/LatestPosts';
   <HeroSection client:load />
   <FeaturesCards client:load />
   <FeaturesGrid />
-  <LatestPosts />
+  <LatestPosts latestPosts={latestPosts} />
 </DefaultLayout>
