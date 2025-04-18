@@ -6,6 +6,7 @@ import { HeroSection } from '../sections/Hero';
 import { FeaturesGrid } from '../sections/FeaturesGrid';
 import { LatestPosts } from '../sections/LatestPosts';
 import { getCollection } from 'astro:content';
+import { TestimonialsSection } from '../sections/Testimonials';
 
 const posts = await getCollection('blog');
 const latestPosts = posts
@@ -24,4 +25,5 @@ const latestPosts = posts
   <FeaturesCards client:load />
   <FeaturesGrid />
   <LatestPosts latestPosts={latestPosts} />
+  <TestimonialsSection />
 </DefaultLayout>
