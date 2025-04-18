@@ -20,14 +20,14 @@ export const LatestPosts = (props: {
             blockchain world, updated weekly.
           </p>
         </div>
-        <div className="mt-16 space-y-8">
+        <div className="mt-16 space-y-8 md:mt-28">
           {latestPosts.map(
             ({ data: { title, description, category } }, index) => (
               <Card
                 key={index}
                 buttonText="Read More"
                 color={getPostColorFromCategory(category)}
-                wrapperClassName={`md:even:float-right md:odd:float-left md:w-[48%] ${index === 1 && "md:pt-7"}`}
+                wrapperClassName={`md:even:float-right md:odd:float-left md:w-[calc(50%-16px)] ${index === 1 && "md:pt-7"}`}
               >
                 <Tag color={getPostColorFromCategory(category)}>{category}</Tag>
                 <h3 className="mt-3 font-heading text-3xl font-black">
