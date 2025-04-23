@@ -4,6 +4,9 @@
 
 @layer base {
   body {
-    @apply antialiased bg-zinc-900 text-zinc-300 font-body;
+    @apply bg-zinc-900 font-body text-zinc-300 antialiased;
+  }
+  html {
+    position: relative;
   }
 }
