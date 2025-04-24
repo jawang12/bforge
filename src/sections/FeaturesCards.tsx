@@ -1,6 +1,5 @@
 import { twMerge } from "tailwind-merge";
-import { TextButton } from "../components/TextButton";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Card } from "../components/Card";
 
 const cardData = [
@@ -36,6 +35,19 @@ const cardData = [
 
 export const FeaturesCards = () => {
   const [activeCardIndex, setActiveCardIndex] = useState(0);
+
+  // rotate cards
+  // useEffect(() => {
+  //   const interval = setInterval(() => {
+  //     setActiveCardIndex((prev) =>
+  //       prev === cardData.length - 1 ? 0 : prev + 1,
+  //     );
+  //   }, 3000);
+
+  //   return () => {
+  //     clearInterval(interval);
+  //   };
+  // }, [activeCardIndex]);
   return (
     <section className="overflow-x-clip py-24 md:-mt-28">
       <div className="container">
@@ -45,22 +57,30 @@ export const FeaturesCards = () => {
         <div className="mt-36 flex lg:mt-48">
           <div className="flex flex-none gap-8">
             {cardData.map(({ image, title, description, color }, index) => (
-              <Card key={title + index} className="max-w-xs md:max-w-md">
-                <div className="-mt-28 flex justify-center">
-                  <div className="relative inline-flex">
-                    <div className="absolute top-[calc(100%+16px)] h-4 w-full rounded-[100%] bg-zinc-950/70 transition duration-300 [mask-image:radial-gradient(closest-side,black,transparent)] group-hover:bg-zinc-950/30"></div>
-                    <img
-                      src={image}
-                      alt="Pill image"
-                      className="size-40 transition duration-300 group-hover:-translate-y-6"
-                    />
+              <div
+                key={title + index}
+                className="transition-all duration-500"
+                style={{
+                  transform: `translateX(calc((-100% - 2rem) * ${activeCardIndex}))`,
+                }}
+              >
+                <Card className="max-w-xs md:max-w-md" color={color}>
+                  <div className="-mt-28 flex justify-center">
+                    <div className="relative inline-flex">
+                      <div className="absolute top-[calc(100%+16px)] h-4 w-full rounded-[100%] bg-zinc-950/70 transition duration-300 [mask-image:radial-gradient(closest-side,black,transparent)] group-hover:bg-zinc-950/30"></div>
+                      <img
+                        src={image}
+                        alt="Pill image"
+                        className="size-40 transition duration-300 group-hover:-translate-y-6"
+                      />
+                    </div>
                   </div>
-                </div>
-                <h3 className="mt-12 font-heading text-3xl font-black">
-                  {title}
-                </h3>
-                <p className="mt-4 text-lg text-zinc-400">{description}</p>
-              </Card>
+                  <h3 className="mt-12 font-heading text-3xl font-black">
+                    {title}
+                  </h3>
+                  <p className="mt-4 text-lg text-zinc-400">{description}</p>
+                </Card>
+              </div>
             ))}
           </div>
         </div>
