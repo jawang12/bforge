@@ -56,15 +56,20 @@ export const HeroSection = () => {
         <div className="mt-24 flex justify-center">
           <div className="relative z-0 inline-flex">
             <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
-              <Hexagon className="size-[1100px]" />
+              {/* <Hexagon className="size-[1100px]" size={1100} /> */}
             </div>
             <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
-              <Hexagon className="size-[1800px]" />
+              {/* <Hexagon
+                className="size-[1800px]"
+                size={1800}
+                reverse={true}
+                duration={55}
+              /> */}
             </div>
             <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
               <Circle
                 className="absolute -top-[900px] left-[200px]"
-                animate={true}
+                // animate={true}
               >
                 <motion.img
                   src="/assets/images/cube.png"
@@ -78,7 +83,7 @@ export const HeroSection = () => {
             <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
               <Circle
                 className="absolute left-[200px] top-[270px]"
-                animate={true}
+                // animate={true}
               >
                 <motion.img
                   src="/assets/images/cuboid.png"
@@ -120,7 +125,18 @@ export const HeroSection = () => {
         </div>
         <div className="mt-40 flex flex-col items-center justify-center gap-4 md:mt-80">
           <div className="inline-flex h-10 w-5 justify-center rounded-full pt-2 outline outline-[6px] outline-fuchsia-500/10">
-            <div className="h-3 w-1 rounded-full bg-fuchsia-500"></div>
+            <motion.div
+              animate={{
+                translateY: 12,
+                opacity: 0.2,
+              }}
+              transition={{
+                repeat: Infinity,
+                duration: 2,
+                ease: "linear",
+              }}
+              className="h-3 w-1 rounded-full bg-fuchsia-500"
+            ></motion.div>
           </div>
           <p className="font-extrabold uppercase tracking-wider text-zinc-500">
             Scroll to Learn More
