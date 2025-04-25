@@ -84,10 +84,10 @@ export const HeaderSection = () => {
           >
             <div className="absolute inset-2 z-0 mt-24 rounded-md bg-zinc-800 md:mt-28">
               <div className="absolute left-full top-1/2 -z-10 -translate-x-1/2 -translate-y-1/2">
-                <Hexagon className="size-[700px]" />
+                <Hexagon size={700} />
               </div>
               <div className="absolute left-full top-1/2 -z-10 -translate-x-1/2 -translate-y-1/2">
-                <Hexagon className="size-[1100px]" />
+                <Hexagon size={1100} duration={55} reverse />
               </div>
               <div className="flex h-full items-center justify-center">
                 <nav className="flex flex-col items-center gap-12 md:gap-16">
