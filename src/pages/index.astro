@@ -26,8 +26,8 @@ const latestPosts = posts
   <HeroSection client:load />
   <FeaturesCards client:load />
   <FeaturesGrid client:load />
-  <LatestPosts latestPosts={latestPosts} />
-  <TestimonialsSection />
+  <LatestPosts latestPosts={latestPosts} client:load />
+  <TestimonialsSection client:load />
   <CallToActionSection client:only='react' />
   <Footer />
 </DefaultLayout>

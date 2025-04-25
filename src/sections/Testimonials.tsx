@@ -1,4 +1,4 @@
-import { twMerge } from "tailwind-merge";
+import { motion } from "framer-motion";
 
 const testimonials = [
   {
@@ -29,9 +29,23 @@ export const TestimonialsSection = () => {
           {/* {Array.from({ length: 3 }, (_, index) => { */}
           {testimonials.map(({ text, name, title, avatarImage }, index) => {
             return (
-              <blockquote
+              <motion.blockquote
                 key={name + index}
                 className={index === 2 ? "md:hidden lg:block" : ""}
+                initial={{
+                  opacity: 0,
+                  y: 30,
+                }}
+                whileInView={{
+                  opacity: 1,
+                  y: 0,
+                }}
+                viewport={{ once: true }}
+                transition={{
+                  delay: index * 0.3,
+                  ease: "easeInOut",
+                  duration: 0.7,
+                }}
               >
                 <p className="font-heading text-3xl font-black lg:text-4xl">
                   &ldquo;{text}&rdquo;
@@ -52,7 +66,7 @@ export const TestimonialsSection = () => {
                     </div>
                   </div>
                 </cite>
-              </blockquote>
+              </motion.blockquote>
             );
           })}
         </div>

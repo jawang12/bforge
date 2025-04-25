@@ -3,11 +3,22 @@ import { Card } from "../components/Card";
 import { getPostColorFromCategory } from "../utils/postUtils";
 import { Tag } from "../components/Tag";
 import { CutCornerButton } from "../components/CutCornerButton";
+import { useRef } from "react";
+import { useScroll, motion, useTransform } from "framer-motion";
 
 export const LatestPosts = (props: {
   latestPosts: CollectionEntry<"blog">[];
 }) => {
   const { latestPosts } = props;
+  const targetRef = useRef(null);
+
+  const { scrollYProgress } = useScroll({
+    target: targetRef,
+    offset: ["start end", "start center"],
+  });
+
+  const marginY = useTransform(scrollYProgress, [0, 1], [20, 84]);
+
   return (
     <section className="py-60">
       <div className="container">
@@ -20,7 +31,13 @@ export const LatestPosts = (props: {
             blockchain world, updated weekly.
           </p>
         </div>
-        <div className="mt-16 space-y-8 md:mt-28">
+        <motion.div
+          className="mt-16 space-y-8 md:mt-28"
+          style={{
+            marginTop: marginY,
+          }}
+          ref={targetRef}
+        >
           {latestPosts.map(
             ({ data: { title, description, category } }, index) => (
               <Card
@@ -37,7 +54,7 @@ export const LatestPosts = (props: {
               </Card>
             ),
           )}
-        </div>
+        </motion.div>
         <div className="clear-both"></div>
         <div className="mt-32 flex justify-center">
           <CutCornerButton>Read the Blog</CutCornerButton>
