@@ -1,7 +1,54 @@
 ---
-// import { getCollection } from 'astro:content';
+import { CutCornerButton } from '../../components/CutCornerButton';
+import { Hexagon } from '../../components/Hexagon';
+import DefaultLayout from '../../layouts/Default.astro';
+import { HeaderSection } from '../../sections/Header';
 
-// const posts = (await getCollection('blog')).sort(
-// 	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
-// );
+import { getCollection } from 'astro:content';
+
+const posts = (await getCollection('blog')).sort(
+  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+);
+
+const {
+  data: { description, title },
+  slug
+} = posts[0];
 ---
+
+<DefaultLayout>
+  <HeaderSection client:load />
+  <section class='py-60 relative overflow-x-clip'>
+    <div class='absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2'>
+      <!-- <Hexagon size={800} duration={35} client:load/> -->
+      <Hexagon size={800} />
+    </div>
+    <div class='absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2'>
+      <Hexagon size={1200} />
+      <!-- <Hexagon size={1200} reverse duration={55} client:load/> -->
+    </div>
+    <div class='container'>
+      <div class='max-w-3xl mx-auto'>
+        <p
+          class='uppercase text-center text-zinc-500 tracking-wider font-extrabold'
+        >
+          Latest Post
+        </p>
+        <h1 class='mt-4 font-black font-heading text-7xl text-center'>
+          {title}
+        </h1>
+        <p class='text-center text-2xl mt-6 text-zinc-400 max-w-xl mx-auto'>
+          {description}
+        </p>
+        <div class='flex justify-center mt-10'>
+          <a href={`/blog/${slug}`}>
+            <CutCornerButton>Read More</CutCornerButton>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+  <div>
+    <!-- blog posts -->
+  </div>
+</DefaultLayout>
