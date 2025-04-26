@@ -1,10 +1,14 @@
 ---
+import { Card } from '../../components/Card';
 import { CutCornerButton } from '../../components/CutCornerButton';
 import { Hexagon } from '../../components/Hexagon';
+import { Tag } from '../../components/Tag';
 import DefaultLayout from '../../layouts/Default.astro';
 import { HeaderSection } from '../../sections/Header';
 
 import { getCollection } from 'astro:content';
+import { getPostColorFromCategory } from '../../utils/postUtils';
+import { twMerge } from 'tailwind-merge';
 
 const posts = (await getCollection('blog')).sort(
   (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
@@ -21,10 +25,8 @@ const {
   <section class='py-60 relative overflow-x-clip'>
     <div class='absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2'>
       <!-- <Hexagon size={800} duration={35} client:load/> -->
-      <Hexagon size={800} />
     </div>
     <div class='absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2'>
-      <Hexagon size={1200} />
       <!-- <Hexagon size={1200} reverse duration={55} client:load/> -->
     </div>
     <div class='container'>
@@ -48,7 +50,60 @@ const {
       </div>
     </div>
   </section>
-  <div>
-    <!-- blog posts -->
-  </div>
+  <section>
+    <div class='container'>
+      <div class='grid grid-cols-2 gap-8'>
+        <div class='flex flex-col gap-12'>
+          {
+            posts.map(
+              ({ data: { title, description, category }, slug }, index) => (
+                <a
+                  href={`/blog/${slug}`}
+                  class={twMerge(index % 2 ? 'hidden' : '')}
+                >
+                  <Card
+                    color={getPostColorFromCategory(category)}
+                    buttonText='Read More'
+                  >
+                    <Tag color={getPostColorFromCategory(category)}>
+                      {category}
+                    </Tag>
+                    <h2 class='font-heading font-black text-3xl mt-4'>
+                      {title}
+                    </h2>
+                    <p class='text-lg mt-6 text-zinc-400'>{description}</p>
+                  </Card>
+                </a>
+              )
+            )
+          }
+        </div>
+        <div class='flex flex-col gap-12 mt-24'>
+          {
+            posts.map(
+              ({ data: { title, description, category }, slug }, index) => (
+                <a
+                  class={twMerge(index % 2 ? '' : 'hidden')}
+                  href={`/blog/${slug}`}
+                >
+                  <Card
+                    color={getPostColorFromCategory(category)}
+                    buttonText='Read More'
+                  >
+                    <Tag color={getPostColorFromCategory(category)}>
+                      {category}
+                    </Tag>
+                    <h2 class='font-heading font-black text-3xl mt-4'>
+                      {title}
+                    </h2>
+                    <p class='text-lg mt-6 text-zinc-400'>{description}</p>
+                  </Card>
+                </a>
+              )
+            )
+          }
+        </div>
+      </div>
+    </div>
+  </section>
 </DefaultLayout>
