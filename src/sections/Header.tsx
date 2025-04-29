@@ -6,7 +6,7 @@ import { AnimatePresence, motion } from "framer-motion";
 // allows us to set animation when component is added or removed from the DOM
 // https://www.framer.com/api/motion/animate-presence/
 
-const navLinks = [
+export const navLinks = [
   {
     title: "Home",
     link: "/",

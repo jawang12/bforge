@@ -1,3 +1,4 @@
+import { navLinks } from "./Header";
 const socialIcons = [
   {
     icon: (
@@ -46,10 +47,15 @@ export const Footer = () => {
             <img src="/assets/images/logo.svg" alt="Blockforge logo" />
           </div>
           <nav className="hidden gap-12 font-heading font-black text-zinc-500 md:flex">
-            <a href="">Home</a>
-            <a href="">Home</a>
-            <a href="">Home</a>
-            <a href="">Home</a>
+            {navLinks.map(({ link, title }, index) => (
+              <a
+                key={`footer-link-${index}`}
+                href={link}
+                className="transition-colors duration-300 hover:text-zinc-300"
+              >
+                {title}
+              </a>
+            ))}
           </nav>
         </div>
         <div className="mt-12 items-center justify-between md:mt-48 md:flex">
