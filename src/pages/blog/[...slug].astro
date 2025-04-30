@@ -1,5 +1,6 @@
 ---
 import PagesHero from '../../components/PagesHero.astro';
+import PagesContent from '../../components/PagesContent.astro';
 import { Tag } from '../../components/Tag';
 import DefaultLayout from '../../layouts/Default.astro';
 import { type CollectionEntry, getCollection } from 'astro:content';
@@ -26,7 +27,9 @@ const { Content } = await post.render();
           {post.data.category}
         </Tag>
       </div>
-      <h1 class='font-heading font-black text-7xl text-center mt-4'>
+      <h1
+        class='font-heading font-black md:text-6xl lg:text-7xl text-5xl text-center mt-4'
+      >
         {post.data.title}
       </h1>
       <p class='text-center text-xl mt-8 text-zinc-400 max-w-2xl mx-auto'>
@@ -39,5 +42,11 @@ const { Content } = await post.render();
       </div>
     </div>
   </PagesHero>
-  <Content />
+  <PagesContent>
+    <div
+      class='prose prose-invert prose-lg mx-auto prose-zinc prose-headings:font-heading prose-headings:font-black prose-h2:lg:text-5xl prose-h2:text-3xl prose-h2:md:text-4xl prose-h3:text-2xl prose-h3:md:text-3xl prose-h3:lg:text-4xl'
+    >
+      <Content />
+    </div>
+  </PagesContent>
 </DefaultLayout>
