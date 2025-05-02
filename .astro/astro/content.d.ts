@@ -217,7 +217,7 @@ declare module 'astro:content' {
   slug: string;
   body: string;
   collection: "careers";
-  data: InferEntrySchema<"careers">;
+  data: any;
   render(): Render[".md"];
 }>;
 "positions": {
@@ -226,28 +226,28 @@ declare module 'astro:content' {
   slug: "frontend-developer";
   body: string;
   collection: "positions";
-  data: any
+  data: InferEntrySchema<"positions">
 } & { render(): Render[".md"] };
 "marketing-specialist.md": {
 	id: "marketing-specialist.md";
   slug: "marketing-specialist";
   body: string;
   collection: "positions";
-  data: any
+  data: InferEntrySchema<"positions">
 } & { render(): Render[".md"] };
 "product-manager.md": {
 	id: "product-manager.md";
   slug: "product-manager";
   body: string;
   collection: "positions";
-  data: any
+  data: InferEntrySchema<"positions">
 } & { render(): Render[".md"] };
 "ux-designer.md": {
 	id: "ux-designer.md";
   slug: "ux-designer";
   body: string;
   collection: "positions";
-  data: any
+  data: InferEntrySchema<"positions">
 } & { render(): Render[".md"] };
 };
 
