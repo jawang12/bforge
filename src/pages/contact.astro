@@ -1,0 +1,42 @@
+---
+import { CutCornerButton } from '../components/CutCornerButton';
+import PagesContent from '../components/PagesContent.astro';
+import PagesHero from '../components/PagesHero.astro';
+import DefaultLayout from '../layouts/Default.astro';
+---
+
+<DefaultLayout>
+  <PagesHero>
+    <p
+      class='uppercase tracking-wider font-extrabold text-center text-zinc-500'
+    >
+      Let's Talk
+    </p>
+    <h1
+      class='mt-4 font-heading font-black text-5xl md:text-6xl lg:text-7xl text-center'
+    >
+      Contact Us
+    </h1>
+    <p
+      class='text-center text-xl md:text-2xl mt-6 max-w-xl mx-auto text-zinc-400'
+    >
+      We're here to help and answer any questions you may have. Reach out to us
+      to learn more about our services, get support, or to apply for positions.
+      We look forward to hearing from you.
+    </p>
+  </PagesHero>
+  <PagesContent>
+    <div class='pb-[1000px]'>
+      <h2>What can we help you with?</h2>
+      <form>
+        <label>Name</label>
+        <input type='text' name='name' id='name' />
+        <label>Email</label>
+        <input type='email' name='email' id='email' />
+        <label>Message</label>
+        <textarea name='message' id='message'></textarea>
+        <CutCornerButton>Send Message</CutCornerButton>
+      </form>
+    </div>
+  </PagesContent>
+</DefaultLayout>

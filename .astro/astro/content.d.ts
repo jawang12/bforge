@@ -212,14 +212,6 @@ declare module 'astro:content' {
   data: InferEntrySchema<"blog">
 } & { render(): Render[".md"] };
 };
-"careers": Record<string, {
-  id: string;
-  slug: string;
-  body: string;
-  collection: "careers";
-  data: any;
-  render(): Render[".md"];
-}>;
 "positions": {
 "frontend-developer.md": {
 	id: "frontend-developer.md";
