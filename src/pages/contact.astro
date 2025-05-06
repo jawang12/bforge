@@ -3,6 +3,8 @@ import { CutCornerButton } from '../components/CutCornerButton';
 import PagesContent from '../components/PagesContent.astro';
 import PagesHero from '../components/PagesHero.astro';
 import DefaultLayout from '../layouts/Default.astro';
+import Input from '../components/Input.astro';
+import Textarea from '../components/Textarea.astro';
 ---
 
 <DefaultLayout>
@@ -26,16 +28,18 @@ import DefaultLayout from '../layouts/Default.astro';
     </p>
   </PagesHero>
   <PagesContent>
-    <div class='pb-[1000px]'>
-      <h2>What can we help you with?</h2>
-      <form>
-        <label>Name</label>
-        <input type='text' name='name' id='name' />
-        <label>Email</label>
-        <input type='email' name='email' id='email' />
-        <label>Message</label>
-        <textarea name='message' id='message'></textarea>
-        <CutCornerButton>Send Message</CutCornerButton>
+    <div class='pb-[1000px] max-w-xl mx-auto'>
+      <h2 class='font-heading font-black text-3xl'>
+        What can we help you with?
+      </h2>
+      <form class='flex flex-col mt-8'>
+        <label for='name'>Name</label>
+        <Input id='name' type='text' name='name' class='mt-1' />
+        <label for='email' class='mt-4'>Email</label>
+        <Input type='email' name='email' id='email' class='mt-1' />
+        <label for='message' class='mt-4'>Message</label>
+        <Textarea name='message' id='message' class='mt-1' />
+        <CutCornerButton className='mt-4'>Send Message</CutCornerButton>
       </form>
     </div>
   </PagesContent>
