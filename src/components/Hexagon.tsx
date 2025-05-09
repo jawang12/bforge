@@ -1,4 +1,5 @@
 import {
+  useEffect,
   useLayoutEffect,
   useRef,
   useState,
@@ -20,7 +21,7 @@ export const Hexagon = (
 
   // measure the path length before being displayed
   // this is important to get the correct length of the path
-  useLayoutEffect(() => {
+  useEffect(() => {
     const pathLength = pathRef.current?.getTotalLength();
     if (pathLength) {
       const scaledPathLength = (pathLength * size) / 82;

@@ -41,9 +41,9 @@ export const HeaderSection = () => {
       <header className="sticky top-0 z-40 bg-zinc-900/50 backdrop-blur-lg">
         <div className="container">
           <div className="flex h-24 items-center justify-between md:h-28">
-            <div>
+            <a href="/">
               <img src="/assets/images/logo.svg" alt="Blockforge Logo" />
-            </div>
+            </a>
             <div className="flex items-center gap-4">
               <CutCornerButton className="hidden md:inline-flex">
                 Get Started

@@ -55,21 +55,21 @@ export const HeroSection = () => {
         </div>
         <div className="mt-24 flex justify-center">
           <div className="relative z-0 inline-flex">
-            <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
-              {/* <Hexagon className="size-[1100px]" size={1100} /> */}
+            <div className="absolute left-1/2 top-1/2 -z-10 -translate-x-1/2 -translate-y-1/2">
+              <Hexagon className="size-[1100px]" size={1100} />
             </div>
-            <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
-              {/* <Hexagon
+            <div className="absolute left-1/2 top-1/2 -z-10 -translate-x-1/2 -translate-y-1/2">
+              <Hexagon
                 className="size-[1800px]"
                 size={1800}
                 reverse={true}
                 duration={55}
-              /> */}
+              />
             </div>
             <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
               <Circle
                 className="absolute -top-[900px] left-[200px]"
-                // animate={true}
+                animate={true}
               >
                 <motion.img
                   src="/assets/images/cube.png"
@@ -83,7 +83,7 @@ export const HeroSection = () => {
             <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
               <Circle
                 className="absolute left-[200px] top-[270px]"
-                // animate={true}
+                animate={true}
               >
                 <motion.img
                   src="/assets/images/cuboid.png"
@@ -95,7 +95,7 @@ export const HeroSection = () => {
               </Circle>
             </div>
             <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
-              <Circle className="absolute -left-[600px] -top-[80px]">
+              <Circle className="absolute -left-[600px] -top-[80px]" animate>
                 <motion.img
                   src="/assets/images/torus.png"
                   alt="Torus 3d image"
