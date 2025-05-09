@@ -19,13 +19,13 @@ export const CallToActionSection = () => {
       <div className="container">
         <div className="relative">
           <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
-            {/* <Hexagon size={700} /> */}
+            <Hexagon size={700} />
           </div>
           <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
-            {/* <Hexagon size={1100} reverse={true} duration={50} /> */}
+            <Hexagon size={1100} reverse={true} duration={50} />
           </div>
           <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
-            <Circle className="absolute -top-[400px] left-0">
+            <Circle className="absolute -top-[400px] left-0" animate>
               <motion.img
                 style={{
                   rotate,
@@ -36,7 +36,10 @@ export const CallToActionSection = () => {
             </Circle>
           </div>
           <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
-            <Circle className="absolute -left-[600px] -top-[70px]">
+            <Circle
+              className="absolute -left-[600px] -top-[70px]"
+              animate={true}
+            >
               <motion.img
                 style={{
                   rotate,

@@ -118,7 +118,7 @@ export const FeaturesGrid = () => {
               </div>
             </div>
           </div>
-          <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
+          <div className="grid grid-cols-1 gap-16 md:grid-cols-3">
             <div className="relative hidden md:block">
               <div className="absolute right-0 z-0">
                 <motion.img

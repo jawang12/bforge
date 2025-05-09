@@ -43,9 +43,9 @@ export const Footer = () => {
     <footer className="bg-zinc-950 py-24">
       <div className="container">
         <div className="flex justify-between">
-          <div>
+          <a href="/">
             <img src="/assets/images/logo.svg" alt="Blockforge logo" />
-          </div>
+          </a>
           <nav className="hidden gap-12 font-heading font-black text-zinc-500 md:flex">
             {navLinks.map(({ link, title }, index) => (
               <a
