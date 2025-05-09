@@ -39,25 +39,34 @@ export const LatestPosts = (props: {
           ref={targetRef}
         >
           {latestPosts.map(
-            ({ data: { title, description, category } }, index) => (
-              <Card
-                key={index}
-                buttonText="Read More"
-                color={getPostColorFromCategory(category)}
-                wrapperClassName={`md:even:float-right md:odd:float-left md:w-[calc(50%-16px)] ${index === 1 && "md:pt-7"}`}
+            ({ data: { title, description, category }, slug }, index) => (
+              <a
+                href={`/blog/${slug}`}
+                key={"latestPost" + index}
+                className={`md:w-[calc(50%-16px)] md:odd:float-left md:even:float-right ${index === 1 && "md:pt-7"}`}
               >
-                <Tag color={getPostColorFromCategory(category)}>{category}</Tag>
-                <h3 className="mt-3 font-heading text-3xl font-black">
-                  {title}
-                </h3>
-                <p className="mt-6 text-lg text-zinc-400">{description}</p>
-              </Card>
+                <Card
+                  buttonText="Read More"
+                  color={getPostColorFromCategory(category)}
+                  // wrapperClassName={`md:even:float-right md:odd:float-left md:w-[calc(50%-16px)] ${index === 1 && "md:pt-7"}`}
+                >
+                  <Tag color={getPostColorFromCategory(category)}>
+                    {category}
+                  </Tag>
+                  <h3 className="mt-3 font-heading text-3xl font-black">
+                    {title}
+                  </h3>
+                  <p className="mt-6 text-lg text-zinc-400">{description}</p>
+                </Card>
+              </a>
             ),
           )}
         </motion.div>
         <div className="clear-both"></div>
         <div className="mt-32 flex justify-center">
-          <CutCornerButton>Read the Blog</CutCornerButton>
+          <a href="/blog">
+            <CutCornerButton>Read the Blog</CutCornerButton>
+          </a>
         </div>
       </div>
     </section>

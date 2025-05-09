@@ -147,7 +147,7 @@ export const FeaturesGrid = () => {
               <h2 className="font-heading text-4xl font-black md:text-5xl lg:text-6xl">
                 Blockforge leads the way.
               </h2>
-              <div className="mt-6 flex flex-col gap-6 text-xl text-zinc-400 lg:text-2xl">
+              <div className="mt-8 flex flex-col gap-6 text-xl text-zinc-400 lg:text-2xl">
                 <p>
                   Blockforge is dedicated to supporting the evolution of Web3
                   applications by delivering the necessary infrastructure and
